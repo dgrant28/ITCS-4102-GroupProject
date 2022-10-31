@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
 
@@ -13,7 +16,11 @@ func main() {
 	var caseVal int
 	_, err := fmt.Scanf("%d", &caseVal)
 	if err != nil {
-		fmt.Println("case value entered is wrong")
+		fmt.Println("Error while entering case value")
+	}
+	if caseVal < 1 || caseVal > 3 {
+		fmt.Println("Invalid case value")
+		os.Exit(0)
 	}
 	switch {
 	case caseVal == 1:
