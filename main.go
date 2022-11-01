@@ -11,6 +11,24 @@ type Food struct {
 	description string
 }
 
+var allFood []Food
+
+func getFoodHelper() Food {
+	var name string
+	var cal int
+	var description string
+	fmt.Println("Enter food name")
+	fmt.Scanln(&name)
+	fmt.Println("Enter Calories")
+	fmt.Scanf("%d", &cal)
+	fmt.Println("Enter Food description")
+	fmt.Scanln(&description)
+
+	fo := Food{name, cal, description}
+	// fmt.Println(reflect.TypeOf(fo))
+	return fo
+}
+
 func addFood() {
 	fmt.Println("For Adding Food Press 1")
 	fmt.Println("For Deleting Food Press 2")
@@ -18,6 +36,28 @@ func addFood() {
 	_, err := fmt.Scanf("%d", &val)
 	if err != nil {
 		fmt.Println("Error while entering food option value")
+	}
+	switch {
+	case val == 1:
+		fmt.Println("Adding Food")
+		foo := getFoodHelper()
+		allFood = append(allFood, foo)
+	case val == 2:
+		fmt.Println("Deleting Food")
+		var fname string
+		flag := false
+		fmt.Println("Enter the food to delete")
+		fmt.Scanln(&fname)
+		for i := 0; i < len(allFood); i++ {
+			if allFood[i].name == fname {
+				fmt.Println("removing food")
+				flag = true
+				break
+			}
+		}
+		if !flag {
+			fmt.Println("Food not present in system")
+		}
 	}
 }
 
