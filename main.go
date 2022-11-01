@@ -55,7 +55,9 @@ func addFood() {
 		fmt.Scanln(&fname)
 		for i := 0; i < len(allFood); i++ {
 			if allFood[i].name == fname {
-				fmt.Println("removing food")
+				fmt.Println("Removing Food")
+				allFood[i] = allFood[len(allFood)-1]
+				allFood = allFood[:len(allFood)-1]
 				flag = true
 				break
 			}
