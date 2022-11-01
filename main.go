@@ -17,6 +17,7 @@ func getFoodHelper() Food {
 	var name string
 	var cal int
 	var description string
+
 	fmt.Println("Enter food name")
 	fmt.Scanln(&name)
 	fmt.Println("Enter Calories")
@@ -55,7 +56,7 @@ func addFood() {
 		fmt.Scanln(&fname)
 		for i := 0; i < len(allFood); i++ {
 			if allFood[i].name == fname {
-				fmt.Println("Removing Food")
+				fmt.Println("Removing Food item")
 				allFood[i] = allFood[len(allFood)-1]
 				allFood = allFood[:len(allFood)-1]
 				flag = true
@@ -63,7 +64,7 @@ func addFood() {
 			}
 		}
 		if !flag {
-			fmt.Println("Food not present in system")
+			fmt.Println("Food item not present in system")
 		}
 	}
 }
