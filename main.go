@@ -11,6 +11,19 @@ type Food struct {
 	description string
 }
 
+type Exercise struct {
+	Type        string
+	duration    string
+	description string
+}
+
+type Physical struct {
+	height   string
+	weight   string
+	age      string
+	activity string
+}
+
 var allFood []Food
 
 func getFoodHelper() Food {
@@ -68,6 +81,41 @@ func addFood() {
 		}
 	}
 }
+func logExercise() Exercise {
+	var exerciseType string
+	var exerciseDuration string
+	var caloriesBurned string
+
+	fmt.Println("Enter the type of Exercise (ex: Cardio or weight training)")
+	fmt.Scanln(&exerciseType)
+	fmt.Println("Enter the exercise duration (ex: number of sets or time training")
+	fmt.Scanln(&exerciseDuration)
+	fmt.Println("Enter the number of calories burned (Approximate or exact)")
+	fmt.Scanln(&caloriesBurned)
+
+	fo := Exercise{exerciseType, exerciseDuration, caloriesBurned}
+	return fo
+
+}
+
+func addPhysicalSpecs() Physical {
+	var height string
+	var weight string
+	var age string
+	var activity string
+
+	fmt.Println("Enter your height (Feet'Inches)")
+	fmt.Scanln(&height)
+	fmt.Println("Enter your weight (lbs pounds)")
+	fmt.Scanln(&weight)
+	fmt.Println("Enter your age?")
+	fmt.Scanln(&age)
+	fmt.Println("How active are you?")
+	fmt.Scanln(&activity)
+
+	fo := Physical{height, weight, age, activity}
+	return fo
+}
 
 func main() {
 
@@ -78,7 +126,8 @@ func main() {
 		fmt.Println("For Calculate Total Calories Press 2")
 		fmt.Println("For Adding Personal Physical Information Press 3")
 		fmt.Println("For listing all food items Press 4 ")
-		fmt.Println("To Exit Press 5")
+		fmt.Println("For logging exercise Press 5 ")
+		fmt.Println("To Exit Press 6")
 
 		var caseVal int
 		_, err := fmt.Scanf("%d", &caseVal)
@@ -97,10 +146,14 @@ func main() {
 			fmt.Println("Calling functionality for Calculating Total Calories")
 		case caseVal == 3:
 			fmt.Println("Calling functionality for Adding Personal Physical Information")
+			addPhysicalSpecs()
 		case caseVal == 4:
 			fmt.Println("listing all food items")
 			printFood()
 		case caseVal == 5:
+			fmt.Println("Calling functionality for Logging Exercise")
+			logExercise()
+		case caseVal == 6:
 			fmt.Println("Exiting the system")
 			os.Exit(0)
 		}
