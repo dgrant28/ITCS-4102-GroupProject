@@ -98,6 +98,18 @@ func logExercise() Exercise {
 
 }
 
+func calcCalories() {
+	if len(allFood) == 0 {
+		fmt.Println("You have no food!")
+	} else {
+		sum := 0
+		for i := 0; i < len(allFood); i++ {
+			sum += allFood[i].calories
+		}
+		fmt.Println("Total Calories: ", sum)
+	}
+}
+
 func addPhysicalSpecs() Physical {
 	var height string
 	var weight string
@@ -144,6 +156,7 @@ func main() {
 			addFood()
 		case caseVal == 2:
 			fmt.Println("Calling functionality for Calculating Total Calories")
+			calcCalories()
 		case caseVal == 3:
 			fmt.Println("Calling functionality for Adding Personal Physical Information")
 			addPhysicalSpecs()
