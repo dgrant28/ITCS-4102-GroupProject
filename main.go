@@ -25,6 +25,8 @@ type Physical struct {
 }
 
 var allFood []Food
+var exercise []Exercise
+var phys []Physical
 
 func getFoodHelper() Food {
 	var name string
@@ -85,8 +87,9 @@ func logExercise() Exercise {
 	var exerciseType string
 	var exerciseDuration string
 	var caloriesBurned string
-
+	var spacer string
 	fmt.Println("Enter the type of Exercise (ex: Cardio or weight training)")
+	fmt.Scanln(&spacer)
 	fmt.Scanln(&exerciseType)
 	fmt.Println("Enter the exercise duration (ex: number of sets or time training")
 	fmt.Scanln(&exerciseDuration)
@@ -94,6 +97,7 @@ func logExercise() Exercise {
 	fmt.Scanln(&caloriesBurned)
 
 	fo := Exercise{exerciseType, exerciseDuration, caloriesBurned}
+	exercise = append(exercise, fo)
 	return fo
 
 }
@@ -115,8 +119,9 @@ func addPhysicalSpecs() Physical {
 	var weight string
 	var age string
 	var activity string
-
+	var spacer string
 	fmt.Println("Enter your height (Feet'Inches)")
+	fmt.Scanln(&spacer)
 	fmt.Scanln(&height)
 	fmt.Println("Enter your weight (lbs pounds)")
 	fmt.Scanln(&weight)
@@ -126,6 +131,7 @@ func addPhysicalSpecs() Physical {
 	fmt.Scanln(&activity)
 
 	fo := Physical{height, weight, age, activity}
+	phys = append(phys, fo)
 	return fo
 }
 
