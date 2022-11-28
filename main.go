@@ -132,7 +132,6 @@ func addPhysicalSpecs() Physical {
 }
 
 func main() {
-	fmt.Println("HELLO")
 	for {
 		fmt.Println("Welcome to Calorie Tracker")
 
