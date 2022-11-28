@@ -123,7 +123,7 @@ func addPhysicalSpecs() Physical {
 	fmt.Scanln(&weight)
 	fmt.Println("Enter your age?")
 	fmt.Scanln(&age)
-	fmt.Println("How active are you?")
+	fmt.Println("How active are you? (very,moderately,less)")
 	fmt.Scanln(&activity)
 
 	fo := Physical{height, weight, age, activity}
