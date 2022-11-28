@@ -147,7 +147,7 @@ func main() {
 		if err != nil {
 			fmt.Println("Error while entering option value")
 		}
-		if caseVal < 1 || caseVal > 5 {
+		if caseVal < 1 || caseVal > 6 {
 			fmt.Println("Invalid case value")
 			os.Exit(0)
 		}
